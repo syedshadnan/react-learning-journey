@@ -28,16 +28,16 @@
 
 # 2. CURRENT STATUS
 
-**Current Day:** Day 2  
-**Current Phase:** Phase 0 — React Project Setup  
-**Current Topic:** React Project Setup  
+**Current Day:** Day 3  
+**Current Phase:** Phase 1 — React Fundamentals  
+**Current Topic:** JSX  
 **Status:** Completed
 
-**Overall Progress:** 4%
+**Overall Progress:** 6%
 
-**Last Completed Day:** Day 2
+**Last Completed Day:** Day 3
 
-**Next Planned Topic:** JSX
+**Next Planned Topic:** Components
 
 ---
 
@@ -527,6 +527,7 @@ Record important recurring mistakes here.
 | React basics | Initially described React as a "library of JavaScript" | Informal wording | Say "JavaScript library for building user interfaces." |
 | React basics | DOM manipulation was introduced before DOM had been taught | Teaching moved ahead of the learner's prerequisite knowledge | Do not assume DOM knowledge; teach prerequisites explicitly when needed. |
 | React mental model | React could be interpreted as automatically making everything efficient | Declarative UI was being connected too strongly with performance | Separate UI correctness/synchronization from performance; performance comes later. |
+| JSX | Initially marked a valid single-root `<div>` return as invalid | Misread the JSX structure while applying the root-element rule | Check the actual top-level structure: one `<div>` is already a valid root. |
 
 ---
 
@@ -634,35 +635,164 @@ Record meaningful exercises and challenges.
 - Day 2 — React Project Setup.
 ---
 
-# 11. COMPLETED TOPICS
+
+## Day 3 — JSX
+**Status:** Completed
+
+**Phase:** Phase 1 — React Fundamentals
+
+**Topics:**
+- What JSX is
+- JSX as HTML-like syntax working alongside JavaScript/TypeScript
+- JSX vs HTML
+- JavaScript expressions inside JSX
+- Variables inside JSX
+- String literals vs variables vs plain JSX text
+- JSX `{}` as a place to evaluate JavaScript expressions
+- Expressions such as arithmetic, method calls, and ternary operators
+- Expression vs statement distinction
+- JSX root element rule
+- Fragments
+- Self-closing JSX elements
+- JSX attributes
+- Static attribute values vs JavaScript values
+- `className`
+- Boolean attributes such as `disabled`
+- Distinguishing JavaScript/TypeScript from JSX inside `.tsx`
+
+**What I understood:**
+- JSX is an HTML-like syntax that works alongside JavaScript to build user interfaces.
+- JSX combines UI structure with JavaScript logic.
+- JSX is not HTML and is not a separate programming language.
+- JavaScript expressions can be evaluated inside JSX using curly braces `{}`.
+- `{name}` evaluates the JavaScript variable `name`.
+- `{"name"}` evaluates a string literal and produces `name`.
+- `name` without braces is plain JSX text.
+- `{}` is not specifically a variable syntax; it is used to evaluate JavaScript expressions inside JSX.
+- Expressions such as `{age + 1}`, `{name.toUpperCase()}`, and `{age >= 18 ? "Adult" : "Minor"}` can be used inside JSX.
+- `age + 1` calculates a value but does not change the `age` variable.
+- A JSX return must have one root element or Fragment at the top level.
+- A Fragment `<>...</>` can group multiple elements without adding an extra HTML wrapper element.
+- If a single real element such as `<div>` is already the only root, a Fragment around it may be unnecessary.
+- JSX elements must be properly closed.
+- Elements such as `<img />` and `<input />` use self-closing syntax.
+- JSX attributes can contain static values such as `className="profile"` or JavaScript values such as `src={imageUrl}`.
+- `src={imageUrl}` evaluates the JavaScript variable, while `src="imageUrl"` uses the literal string `"imageUrl"`.
+- JSX uses `className` rather than `class`.
+- Boolean attributes such as `disabled` can be written directly.
+- A `.tsx` file can contain both JavaScript/TypeScript and JSX.
+
+**Practice completed:**
+- Built a JSX greeting using `name` and `age` variables.
+- Distinguished `{name}`, `{"name"}`, and plain `name`.
+- Predicted the results of arithmetic, ternary, and string-method expressions inside JSX.
+- Identified why multiple top-level JSX elements are invalid.
+- Identified valid and invalid JSX examples.
+- Identified JSX attributes, a boolean attribute, and a self-closing element.
+- Distinguished `src={imageUrl}` from `src="imageUrl"`.
+- Built an independent profile component using variables, a ternary expression, a `className`, and a Fragment.
+
+**Challenge result:**
+- Successfully completed the independent JSX profile challenge after feedback.
+- Correctly explained the role of JavaScript expressions inside JSX.
+- Correctly identified JSX structure and syntax rules.
+- One intermediate classification mistake occurred: a valid `<div>` root was initially marked invalid, then corrected after reviewing the actual structure.
+
+**Mistakes made:**
+- Initially marked a valid JSX return containing one `<div>` root as invalid.
+- Described `class` as a JavaScript special keyword when explaining `className`; the practical JSX rule was understood, but the terminology was refined.
+- Initially called `src="imageUrl"` a "false src"; refined this to "a literal string value."
+
+**Important lessons from mistakes:**
+- Apply the root-element rule to the actual top-level structure rather than assuming nested elements create multiple roots.
+- Use precise terminology when explaining JSX and JavaScript behavior.
+- Distinguish literal strings from evaluated JavaScript variables.
+- A valid implementation can still contain unnecessary structure; for example, a Fragment around a single root `<div>` is valid but unnecessary.
+
+**Questions still open:**
+- JSX compilation/transformation into JavaScript was not taught in depth.
+- Detailed JSX attribute naming rules beyond `className`/`htmlFor` were not taught.
+- Conditional rendering will be studied later rather than fully covered during JSX.
+
+**Confidence:**
+- JSX: 4/5
+- Overall React: 4/5
+
+**Mentor assessment:**
+- Day 3 objectives were successfully completed.
+- The user demonstrated understanding through independent reasoning and code construction.
+- The user can distinguish JSX from HTML and JavaScript, use expressions in JSX, and apply core JSX syntax rules.
+- JSX should not be marked as mastered yet; future component and rendering work should reinforce the mental model.
+
+**Revision needed:**
+- Light revision: Yes
+
+**Next topic:**
+- Day 4 — Components.
+
+# 12. COMPLETED TOPICS
 
 Completed topics:
 
-- [x] React mental model / What is React & Why React — 2026-09-01 — 4/5
-- [x] React project setup — 2026-09-01 — 4/5
+- [x] Day 1 — React mental model / What is React & Why React — 2026-09-01 — 4/5
+- [x] Day 2 — React project setup — 2026-09-01 — 4/5
+- [x] Day 3 — JSX — 2026-09-02 — 4/5
+- [ ] Day 4 — Components
+- [ ] Day 5 — Props
+- [ ] Day 6 — Events
+- [ ] Day 7 — Conditional Rendering
+- [ ] Day 8 — Lists & Keys
+- [ ] Day 9 — Fundamentals Practice Project
+- [ ] Day 10 — Understanding State
+- [ ] Day 11 — useState
+- [ ] Day 12 — Object State
+- [ ] Day 13 — Array State
+- [ ] Day 14 — Forms
+- [ ] Day 15 — Lifting State Up
+- [ ] Day 16 — State Practice Project
+- [ ] Day 17 — Rendering & Re-rendering
+- [ ] Day 18 — Component Design
+- [ ] Day 19 — useEffect
+- [ ] Day 20 — API Calls
+- [ ] Day 21 — API Project
+- [ ] Day 22 — Advanced Forms
+- [ ] Day 23 — Reusable Form Patterns
+- [ ] Day 24 — Search, Filter & Sort
+- [ ] Day 25 — Pagination & UI States
+- [ ] Day 26 — useRef
+- [ ] Day 27 — useMemo
+- [ ] Day 28 — useCallback
+- [ ] Day 29 — Custom Hooks
+- [ ] Day 30 — Hooks Revision Challenge
+- [ ] Day 31 — React Router
+- [ ] Day 32 — Dynamic Routes
+- [ ] Day 33 — Nested Routes
+- [ ] Day 34 — Protected Routes
+- [ ] Day 35 — Routing Project
+- [ ] Day 36 — Context API
+- [ ] Day 37 — Context + State
+- [ ] Day 38 — Redux Concepts
+- [ ] Day 39 — Redux Toolkit
+- [ ] Day 40 — State Management Project
+- [ ] Day 41 — TypeScript + React Setup
+- [ ] Day 42 — Props & Children Types
+- [ ] Day 43 — State Types
+- [ ] Day 44 — Event Types
+- [ ] Day 45 — API Types
+- [ ] Day 46 — Typed Custom Hooks
+- [ ] Day 47 — TypeScript + React Challenge
+- [ ] Day 48 — Project Architecture
+- [ ] Day 49 — Reusable UI
+- [ ] Day 50 — Performance
+- [ ] Day 51 — Error Handling
+- [ ] Day 52 — React Patterns
+- [ ] Day 53 — TanStack Query
+- [ ] Day 54 — Authentication Architecture
+- [ ] Day 55+ — Full React Project
 
-When a topic is completed, add it here with the date and confidence level.
+When a topic is completed, add the date and confidence level.
 
-Example:
-- [x] React mental model / What is React & Why React — 2026-09-01 — 4/5
-- [ ] JSX
-- [ ] Components
-- [ ] Props
-- [ ] Events
-- [ ] Conditional Rendering
-- [ ] Lists & Keys
-- [ ] State
-- [ ] useEffect
-- [ ] API Integration
-- [ ] Routing
-- [ ] Context
-- [ ] Redux Toolkit
-- [ ] TypeScript + React
-- [ ] TanStack Query
-
----
-
-# 12. SOURCE / REFERENCE POLICY
+# 13. SOURCE / REFERENCE POLICY
 
 Primary learning sources should generally be:
 
@@ -681,7 +811,7 @@ If a React API or recommended practice may have changed, verify against current 
 
 ---
 
-# 13. GIT / PROGRESS WORKFLOW
+# 14. GIT / PROGRESS WORKFLOW
 
 Recommended workflow after meaningful daily progress:
 
@@ -702,8 +832,10 @@ or
 
 ---
 
-## Day 2
+## Day 2 — React Project Setup
 **Status:** Completed
+
+**Phase:** Phase 0 — React Foundations
 
 **Topics:**
 - React project setup
@@ -786,7 +918,7 @@ or
 
 ---
 
-# 14. ADAPTATION RULES
+# 15. ADAPTATION RULES
 
 This roadmap is not a prison.
 
@@ -808,26 +940,24 @@ But any meaningful roadmap change should be recorded in this file.
 | 2026-08-31 | Initial React roadmap created | React learning journey started |
 | 2026-09-01 | Completed Day 1 | Built and tested the React mental model; next step is project setup |
 | 2026-09-01 | Completed Day 2 | Built and tested the React project setup mental model; next step is JSX |
+| 2026-09-02 | Completed Day 3 | Built and tested the JSX mental model and core syntax rules; next step is components |
+| 2026-09-02 | Fixed day/phase sequencing | Clarified that Day 1 = React mental model, Day 2 = project setup, and Day 3 = JSX; Day 3 begins Phase 1 |
 
 ---
 
-# 15. CURRENT SESSION NOTES
+# 16. CURRENT SESSION NOTES
 
-Use this section for information that matters immediately for the next session.
-
-**Current understanding:** Understands the Day 1 React mental model at approximately 4/5 confidence and completed Day 2 project setup at approximately 4/5 confidence. Understands npm, Vite, `package.json`, `index.html`, `main.tsx`, `App.tsx`, and the `#root` connection. Has not yet learned JSX in depth.
+**Current understanding:** Understands the Day 1 React mental model at approximately 4/5 confidence, Day 2 project setup at approximately 4/5 confidence, and Day 3 JSX at approximately 4/5 confidence. Can explain JSX as HTML-like syntax working alongside JavaScript, use JavaScript expressions inside `{}`, distinguish variables from strings/plain JSX text, apply the root/Fragment rule, use JSX attributes, and build a small JSX component independently.
 
 **Important context:** The user selected the TypeScript variant for the Vite React project and has foundational TypeScript knowledge. Use `.tsx` examples rather than `.jsx` examples for this project.
 
-**Important learning note:** The user can explain the project startup flow but benefits from organizing the explanation into a sequence. Light revision should reinforce independent explanation before advancing.
+**Important learning note:** The user benefits from precise terminology and reasoning from actual code structure. One mistake during Day 3 involved incorrectly classifying a valid single `<div>` root as invalid; reinforce careful structural reading rather than just repeating the rule.
 
-**Immediate teaching priority:** Teach JSX from first principles and clearly distinguish JSX from HTML and from JavaScript/TypeScript.
+**Immediate teaching priority:** Teach React components from first principles. Explain the problem components solve, the mental model of function components, component naming, composition, and reusable UI. Do not assume JSX mastery beyond the recorded 4/5 confidence.
 
-**Next session:** React Day 2 — React Project Setup.
+**Next session:** Day 4 — Components.
 
----
-
-# 16. END-OF-DAY UPDATE TEMPLATE
+# 17. END-OF-DAY UPDATE TEMPLATE
 
 Copy and update this section after each day:
 
@@ -874,7 +1004,7 @@ Copy and update this section after each day:
 
 ---
 
-# 17. IMPORTANT INSTRUCTION
+# 18. IMPORTANT INSTRUCTION
 
 This file is the **single source of truth for the React learning journey**.
 
