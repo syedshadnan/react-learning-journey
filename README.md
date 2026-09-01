@@ -8,14 +8,14 @@ The goal of this repository is not simply to complete a React course.
 
 It is to become capable of:
 
-* Understanding how React works
-* Building React applications independently
-* Reasoning about React behavior
-* Debugging problems
-* Choosing appropriate patterns
-* Understanding trade-offs
-* Building real-world applications
-* Eventually working confidently with React + TypeScript
+- Understanding how React works
+- Building React applications independently
+- Reasoning about React behavior
+- Debugging problems
+- Choosing appropriate patterns
+- Understanding trade-offs
+- Building real-world applications
+- Eventually working confidently with React + TypeScript
 
 ## 🧠 Learning Philosophy
 
@@ -49,87 +49,87 @@ The roadmap is adaptive. Topics may be repeated, split, reordered, or revisited 
 
 ### Phase 0 — React Mental Model
 
-* [x] Day 1 — What is React & Why React?
-* [ ] Day 2 — React Project Setup
+- [x] Day 1 — What is React & Why React?
+- [ ] Day 2 — React Project Setup
 
 ### Phase 1 — React Fundamentals
 
-* [ ] JSX
-* [ ] Components
-* [ ] Props
-* [ ] Events
-* [ ] Conditional Rendering
-* [ ] Lists & Keys
-* [ ] Fundamentals Practice Project
+- [ ] JSX
+- [ ] Components
+- [ ] Props
+- [ ] Events
+- [ ] Conditional Rendering
+- [ ] Lists & Keys
+- [ ] Fundamentals Practice Project
 
 ### Phase 2 — State & Interaction
 
-* [ ] Understanding State
-* [ ] `useState`
-* [ ] Object State
-* [ ] Array State
-* [ ] Forms
-* [ ] Lifting State Up
-* [ ] State Practice Project
+- [ ] Understanding State
+- [ ] `useState`
+- [ ] Object State
+- [ ] Array State
+- [ ] Forms
+- [ ] Lifting State Up
+- [ ] State Practice Project
 
 ### Phase 3 — Effects & Data
 
-* [ ] Rendering & Re-rendering
-* [ ] Component Design
-* [ ] `useEffect`
-* [ ] API Calls
-* [ ] API Project
+- [ ] Rendering & Re-rendering
+- [ ] Component Design
+- [ ] `useEffect`
+- [ ] API Calls
+- [ ] API Project
 
 ### Phase 4 — Forms & UI Logic
 
-* [ ] Advanced Forms
-* [ ] Reusable Form Patterns
-* [ ] Search, Filter & Sort
-* [ ] Pagination & UI States
+- [ ] Advanced Forms
+- [ ] Reusable Form Patterns
+- [ ] Search, Filter & Sort
+- [ ] Pagination & UI States
 
 ### Phase 5 — Hooks
 
-* [ ] `useRef`
-* [ ] `useMemo`
-* [ ] `useCallback`
-* [ ] Custom Hooks
-* [ ] Hooks Revision Challenge
+- [ ] `useRef`
+- [ ] `useMemo`
+- [ ] `useCallback`
+- [ ] Custom Hooks
+- [ ] Hooks Revision Challenge
 
 ### Phase 6 — Routing
 
-* [ ] React Router
-* [ ] Dynamic Routes
-* [ ] Nested Routes
-* [ ] Protected Routes
-* [ ] Routing Project
+- [ ] React Router
+- [ ] Dynamic Routes
+- [ ] Nested Routes
+- [ ] Protected Routes
+- [ ] Routing Project
 
 ### Phase 7 — Global State
 
-* [ ] Context API
-* [ ] Context + State
-* [ ] Redux Concepts
-* [ ] Redux Toolkit
-* [ ] State Management Project
+- [ ] Context API
+- [ ] Context + State
+- [ ] Redux Concepts
+- [ ] Redux Toolkit
+- [ ] State Management Project
 
 ### Phase 8 — TypeScript + React
 
-* [ ] TypeScript + React Setup
-* [ ] Props & Children Types
-* [ ] State Types
-* [ ] Event Types
-* [ ] API Types
-* [ ] Typed Custom Hooks
-* [ ] TypeScript + React Challenge
+- [ ] TypeScript + React Setup
+- [ ] Props & Children Types
+- [ ] State Types
+- [ ] Event Types
+- [ ] API Types
+- [ ] Typed Custom Hooks
+- [ ] TypeScript + React Challenge
 
 ### Phase 9 — Professional React
 
-* [ ] Project Architecture
-* [ ] Reusable UI
-* [ ] Performance
-* [ ] Error Handling
-* [ ] React Patterns
-* [ ] TanStack Query
-* [ ] Authentication Architecture
+- [ ] Project Architecture
+- [ ] Reusable UI
+- [ ] Performance
+- [ ] Error Handling
+- [ ] React Patterns
+- [ ] TanStack Query
+- [ ] Authentication Architecture
 
 ### Phase 10 — Final Project
 
@@ -137,39 +137,39 @@ A full React + TypeScript application combining the concepts learned throughout 
 
 Planned areas include:
 
-* React
-* TypeScript
-* React Router
-* API integration
-* Authentication
-* Forms
-* Custom Hooks
-* Context and/or Redux Toolkit
-* TanStack Query
-* Responsive UI
-* Loading, error, and empty states
-* Clean component architecture
-* Git/GitHub workflow
+- React
+- TypeScript
+- React Router
+- API integration
+- Authentication
+- Forms
+- Custom Hooks
+- Context and/or Redux Toolkit
+- TanStack Query
+- Responsive UI
+- Loading, error, and empty states
+- Clean component architecture
+- Git/GitHub workflow
 
 ## 📈 Current Progress
 
-**Current Day:** Day 1
-**Current Phase:** Phase 0 — React Mental Model
-**Overall Progress:** 2%
+**Current Day:** Day 1  
+**Current Phase:** Phase 0 — React Mental Model  
+**Overall Progress:** 2%  
 **React Mental Model Confidence:** 4/5
 
 ### Day 1 — Completed
 
 Topics covered:
 
-* What React is
-* What UI means
-* Why complex UI becomes difficult to manage
-* React's basic mental model
-* Declarative UI
-* Imperative vs declarative thinking
-* Component-based thinking
-* React vs vanilla JavaScript
+- What React is
+- What UI means
+- Why complex UI becomes difficult to manage
+- React's basic mental model
+- Declarative UI
+- Imperative vs declarative thinking
+- Component-based thinking
+- React vs vanilla JavaScript
 
 ### Key takeaway
 
@@ -217,16 +217,16 @@ The Programming Hero course is **not treated as the authority for this roadmap**
 
 It tracks:
 
-* Current progress
-* Completed topics
-* Weak areas
-* Confidence levels
-* Practice history
-* Mistakes
-* Open questions
-* Mentor assessment
-* Revision requirements
-* Next learning topic
+- Current progress
+- Completed topics
+- Weak areas
+- Confidence levels
+- Practice history
+- Mistakes
+- Open questions
+- Mentor assessment
+- Revision requirements
+- Next learning topic
 
 ## 🧪 Practice Philosophy
 
@@ -256,14 +256,14 @@ The goal is to eventually solve problems independently.
 
 By the end of this journey, I want to be able to look at a React application and confidently answer:
 
-* Why is it structured this way?
-* How does data flow through it?
-* What causes the UI to change?
-* Why is a particular React pattern being used?
-* What could go wrong?
-* How would I debug it?
-* Is there a simpler or better approach?
-* How would I extend the application?
+- Why is it structured this way?
+- How does data flow through it?
+- What causes the UI to change?
+- Why is a particular React pattern being used?
+- What could go wrong?
+- How would I debug it?
+- Is there a simpler or better approach?
+- How would I extend the application?
 
 Ultimately, this repository is about going from:
 
