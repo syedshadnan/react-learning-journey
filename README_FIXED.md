@@ -49,7 +49,7 @@ The roadmap is adaptive. Topics may be repeated, split, reordered, or revisited 
 
 ### Phase 0 — React Mental Model
 
-- [x] Day 1 — What is React & Why React?
+- [ ] Day 1 — What is React & Why React?
 - [ ] Day 2 — React Project Setup
 
 ### Phase 1 — React Fundamentals
@@ -151,32 +151,6 @@ Planned areas include:
 - Clean component architecture
 - Git/GitHub workflow
 
-## 📈 Current Progress
-
-**Current Day:** Day 1  
-**Current Phase:** Phase 0 — React Mental Model  
-**Overall Progress:** 2%  
-**React Mental Model Confidence:** 4/5
-
-### Day 1 — Completed
-
-Topics covered:
-
-- What React is
-- What UI means
-- Why complex UI becomes difficult to manage
-- React's basic mental model
-- Declarative UI
-- Imperative vs declarative thinking
-- Component-based thinking
-- React vs vanilla JavaScript
-
-### Key takeaway
-
-> **The UI should represent the current state/data of the application.**
-
-React provides a way to describe and organize interactive UIs around this idea.
-
 ## 📂 Repository Structure
 
 The repository will evolve as the learning journey progresses.
@@ -213,11 +187,14 @@ The Programming Hero course is **not treated as the authority for this roadmap**
 
 ## 📝 Progress Tracking
 
-`REACT_MASTER_SOURCE.md` is the **single source of truth** for this learning journey.
+`REACT_MASTER_SOURCE.md` is the **single source of truth** for the learning journey.
 
-It tracks:
+The README is intentionally **static** and is not updated after every learning day.
+
+The master source tracks:
 
 - Current progress
+- Current learning day
 - Completed topics
 - Weak areas
 - Confidence levels
@@ -227,6 +204,8 @@ It tracks:
 - Mentor assessment
 - Revision requirements
 - Next learning topic
+
+Daily revision notes and session-specific material may be kept separately when useful, while the master source remains the authoritative learning record.
 
 ## 🧪 Practice Philosophy
 
@@ -251,6 +230,24 @@ Refactor when appropriate
 The goal is not to copy solutions.
 
 The goal is to eventually solve problems independently.
+
+## 🧩 Mentoring Approach
+
+The learning journey emphasizes:
+
+- First-principles explanations
+- Mental models before abstractions
+- Small examples before complex applications
+- Attempting problems before seeing solutions
+- Hints before full solutions when appropriate
+- Code review focused on reasoning, not just syntax
+- Debugging and learning from mistakes
+- Challenging assumptions and comparing trade-offs
+- Gradually increasing independent decision-making
+
+If a prerequisite is missing, the roadmap may pause to teach it before continuing.
+
+If a concept is already genuinely understood, unnecessary repetition should be avoided.
 
 ## 🚀 Long-Term Goal
 

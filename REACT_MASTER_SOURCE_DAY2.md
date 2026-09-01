@@ -28,16 +28,16 @@
 
 # 2. CURRENT STATUS
 
-**Current Day:** Day 1  
-**Current Phase:** Phase 0 — React Mental Model  
-**Current Topic:** What is React and why is it useful?  
+**Current Day:** Day 2  
+**Current Phase:** Phase 0 — React Project Setup  
+**Current Topic:** React Project Setup  
 **Status:** Completed
 
-**Overall Progress:** 2%
+**Overall Progress:** 4%
 
-**Last Completed Day:** Day 1
+**Last Completed Day:** Day 2
 
-**Next Planned Topic:** React Mental Model / What problem React solves
+**Next Planned Topic:** JSX
 
 ---
 
@@ -636,7 +636,10 @@ Record meaningful exercises and challenges.
 
 # 11. COMPLETED TOPICS
 
-No topics completed yet.
+Completed topics:
+
+- [x] React mental model / What is React & Why React — 2026-09-01 — 4/5
+- [x] React project setup — 2026-09-01 — 4/5
 
 When a topic is completed, add it here with the date and confidence level.
 
@@ -699,6 +702,90 @@ or
 
 ---
 
+## Day 2
+**Status:** Completed
+
+**Topics:**
+- React project setup
+- Node.js/npm basics needed for React
+- Vite
+- `npm create vite@latest`
+- `npm install`
+- `npm run dev`
+- Development server
+- Project structure
+- `package.json`
+- `index.html`
+- `main.tsx`
+- `App.tsx`
+- Basic `import` / `export`
+- The `#root` connection
+- Browser → React startup flow
+- Development-time UI updates
+
+**What I understood:**
+- Node.js provides the environment needed to run development tools.
+- npm manages packages and runs project scripts.
+- Vite is a development/build tool, not React.
+- `npm create vite@latest` creates a project using a Vite template.
+- `npm install` installs project dependencies.
+- `npm run dev` runs the `dev` script from `package.json`, which starts Vite's local development server.
+- `package.json` contains project information, dependencies, and scripts.
+- `index.html` is the initial HTML document loaded by the browser and provides a container such as `<div id="root"></div>`.
+- `main.tsx` is the React entry point that finds the HTML container and connects React to it.
+- `main.tsx` imports `App` from `App.tsx`; `App.tsx` is the root React component.
+- `import` and `export` are JavaScript/TypeScript module concepts.
+- The ID used by `document.getElementById()` must match the corresponding element ID in `index.html`.
+- Simplified startup flow: browser loads `index.html` → `main.tsx` finds `#root` → `main.tsx` imports `App` → React renders `<App />` into the root container.
+- During development, Vite detects source changes and helps update the browser.
+
+**Practice completed:**
+- Explained `npm create vite@latest`, `npm install`, and `npm run dev`.
+- Explained why a development server is useful.
+- Identified the roles of `src/`, `index.html`, and `package.json`.
+- Explained `"dev": "vite"`.
+- Explained how `index.html` and `main.tsx` connect through `root`.
+- Correctly predicted that changing the HTML ID without changing `main.tsx` would break the expected mounting connection.
+- Changed text in `App.tsx` and observed the updated UI.
+- Explained the browser-to-React startup flow.
+
+**Challenge result:**
+- Correctly connected npm, Vite, `package.json`, `index.html`, `main.tsx`, `App.tsx`, React, and the browser into one mental model.
+- Correctly reasoned about mismatched IDs.
+
+**Mistakes made:**
+- Initially described `npm run dev` as possibly creating a "live link"; refined this to a local development server.
+- Initially described `index.html` as helping render React; refined this to `index.html` providing the container while `main.tsx` connects React to it.
+- Initially used `.jsx` terminology before clarifying that this project uses the TypeScript variant and therefore uses `.tsx`.
+
+**Important lessons:**
+- A local development server is different from a public deployed website.
+- `index.html` provides the container; `main.tsx` connects React to it.
+- Keep responsibilities distinct: npm runs scripts, Vite provides development/build tooling, `main.tsx` is the entry point, and `App.tsx` is the root component.
+
+**Questions still open:**
+- Exact internal Vite update mechanics are not learned in depth.
+- `StrictMode` and the non-null assertion `!` in generated `main.tsx` code have not been taught.
+- Component architecture beyond the root `App` component has not been taught.
+
+**Confidence:**
+- React project setup: 4/5
+- Overall React: 4/5
+
+**Mentor assessment:**
+- Day 2 objectives were successfully completed.
+- The user demonstrated understanding through reasoning rather than only copying commands.
+- The user can explain the core project setup and browser-to-React connection.
+- Light revision is recommended, especially explaining the startup flow independently.
+
+**Revision needed:**
+- Light revision: Yes
+
+**Next topic:**
+- Day 3 — JSX.
+
+---
+
 # 14. ADAPTATION RULES
 
 This roadmap is not a prison.
@@ -720,6 +807,7 @@ But any meaningful roadmap change should be recorded in this file.
 |---|---|---|
 | 2026-08-31 | Initial React roadmap created | React learning journey started |
 | 2026-09-01 | Completed Day 1 | Built and tested the React mental model; next step is project setup |
+| 2026-09-01 | Completed Day 2 | Built and tested the React project setup mental model; next step is JSX |
 
 ---
 
@@ -727,11 +815,13 @@ But any meaningful roadmap change should be recorded in this file.
 
 Use this section for information that matters immediately for the next session.
 
-**Current understanding:** Understands the Day 1 React mental model at approximately 4/5 confidence; has not yet learned JSX, DOM APIs, or React implementation details.
+**Current understanding:** Understands the Day 1 React mental model at approximately 4/5 confidence and completed Day 2 project setup at approximately 4/5 confidence. Understands npm, Vite, `package.json`, `index.html`, `main.tsx`, `App.tsx`, and the `#root` connection. Has not yet learned JSX in depth.
 
-**Important context:** The user has reported that the first Programming Hero React module felt overwhelming and largely unclear. React should therefore be taught from first principles rather than assuming the course material was understood.
+**Important context:** The user selected the TypeScript variant for the Vite React project and has foundational TypeScript knowledge. Use `.tsx` examples rather than `.jsx` examples for this project.
 
-**Immediate teaching priority:** Build a clear mental model of React before introducing large amounts of syntax.
+**Important learning note:** The user can explain the project startup flow but benefits from organizing the explanation into a sequence. Light revision should reinforce independent explanation before advancing.
+
+**Immediate teaching priority:** Teach JSX from first principles and clearly distinguish JSX from HTML and from JavaScript/TypeScript.
 
 **Next session:** React Day 2 — React Project Setup.
 
