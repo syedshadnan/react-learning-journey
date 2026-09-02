@@ -28,16 +28,16 @@
 
 # 2. CURRENT STATUS
 
-**Current Day:** Day 3  
+**Current Day:** Day 5  
 **Current Phase:** Phase 1 — React Fundamentals  
-**Current Topic:** JSX  
+**Current Topic:** Props  
 **Status:** Completed
 
-**Overall Progress:** 6%
+**Overall Progress:** 9%
 
-**Last Completed Day:** Day 3
+**Last Completed Day:** Day 5
 
-**Next Planned Topic:** Components
+**Next Planned Topic:** Events
 
 ---
 
@@ -539,6 +539,8 @@ Track concepts that need revision.
 |---|---|---|---|
 | React mental model | 4/5 | Needs more application in unfamiliar situations before 5/5 | Light revision |
 | React basics | 4/5 | No major blocker; syntax and implementation not yet learned | No immediate revision |
+| Components | 4/5 | Needs more real-project application before mastery | Light revision |
+| Props | 4/5 | Core concepts understood; needs reinforcement through future interaction/state topics | Light revision |
 
 Confidence scale:
 - 0 = Don't understand
@@ -561,6 +563,11 @@ Record meaningful exercises and challenges.
 | 1 | Component reasoning | Completed | Identified manageability and reuse as benefits. |
 | 1 | Vanilla JS vs React comparison | Completed | Correctly reasoned that React is useful when UI complexity/interactivity warrants it. |
 | 1 | Todo App mental-model challenge | Completed | Successfully applied data → UI, declarative thinking, and components. |
+| 4 | Component composition challenges | Completed | Built nested components independently and reasoned about parent/child/descendant relationships. |
+| 5 | Student props exercise | Completed | Built a reusable typed component with different prop values. |
+| 5 | Props reasoning checks | Completed | Correctly explained props objects, destructuring, value types, optional props, and defaults. |
+| 5 | ProfileCard combined challenge | Completed | Independently combined required props, optional props, default values, children, TypeScript types, and component reuse. |
+| 5 | Children data-flow challenge | Completed | Correctly explained that parent decides what children to pass and child decides where to render them. |
 
 ---
 
@@ -730,6 +737,121 @@ Record meaningful exercises and challenges.
 **Next topic:**
 - Day 4 — Components.
 
+
+# 20. DAY 5 — REACT PROPS
+
+**Status:** Completed
+
+**Topics learned:**
+- What props are and the problem they solve.
+- Reusable components receiving different data.
+- Props as a conceptual object.
+- Parent → child data flow.
+- Accessing props with `props.property`.
+- Props destructuring.
+- TypeScript prop typing.
+- String, number, and boolean props.
+- JSX curly braces for JavaScript expressions.
+- Boolean rendering behavior in JSX.
+- Required props.
+- Optional props using `?`.
+- Default prop values.
+- Props as read-only inputs from the child's perspective.
+- One-way data flow.
+- The `children` prop.
+- Parent deciding what children to provide versus child deciding where to render them.
+
+**Key concepts understood:**
+- Props allow the same reusable component structure to receive different data and produce different UI.
+- Props conceptually arrive as an object, for example:
+  ```ts
+  {
+    name: "Ifty",
+    age: 22
+  }
+  ```
+- The parent provides props and the child receives and uses them.
+- Props can be accessed through `props.name` or destructured immediately.
+- Props destructuring is JavaScript object destructuring, not React-specific magic.
+- TypeScript can define required and optional prop shapes.
+- `role?: string` means the parent may omit the prop.
+- A default value such as `role = "Student"` provides a fallback when the prop is omitted or `undefined`.
+- JSX `{}` evaluates JavaScript expressions; it is not specifically number syntax.
+- Strings and numbers can visibly render in JSX, while booleans such as `true` and `false` do not render as visible text directly.
+- Props are read-only from the child's perspective: a child should not directly modify received props.
+- One-way data flow keeps ownership clear: parent provides data → child consumes it.
+- `children` is a prop containing content placed between a component's opening and closing tags.
+- The parent decides what children content to pass; the child decides where `{children}` appears in its own JSX.
+- Moving `{children}` inside the child component can change the UI position without changing the parent's usage.
+
+**Concepts still unclear:**
+- No major conceptual blocker remained at the end of the session.
+- `React.ReactNode` was used as a practical TypeScript type for children, but its full internal type definition was not studied and should not be treated as memorized.
+- Props will need reinforcement in unfamiliar situations and later topics involving events, state, and component communication.
+
+**Practice completed:**
+- Built a `Student` component receiving typed `name` and `department` props and reused it with different data.
+- Explained the conceptual props object created by JSX attributes.
+- Compared `props.name` access with immediate object destructuring.
+- Typed multiple props with string, number, and boolean values.
+- Reasoned about JSX value types and why `{}` evaluates JavaScript expressions.
+- Learned that booleans do not render as visible text directly in JSX.
+- Predicted optional-prop and default-value behavior.
+- Reasoned through read-only props and parent ownership of changes.
+- Worked through `children` from a simple text example to multiple JSX elements.
+- Built the final reusable `ProfileCard` component independently.
+
+**Challenge result:**
+- Successfully completed the combined `ProfileCard` challenge independently.
+- Used required props: `name` and `age`.
+- Used an optional prop: `role?: string`.
+- Used a default value for `role`.
+- Used typed `children: React.ReactNode`.
+- Used props destructuring.
+- Reused the same component with different data and different children.
+- Correctly explained the complete parent → props → child flow.
+- Correctly reasoned that the child controls where children render in its own UI structure.
+
+**Mistakes made:**
+- Initially thought a missing required `age` prop might still allow the component to work; corrected after connecting TypeScript required-property rules to component props.
+- Initially understood “read-only props” too broadly and briefly suggested that data might therefore not be passed from the parent; corrected to distinguish receiving data from modifying received data.
+- Initially guessed that boolean props such as `true` might visibly render as text; corrected after learning React's rendering behavior.
+- Initially confused the direction of `children` flow and needed clarification that `App` provides children while the child component receives them.
+- Minor spelling/convention issues such as `Props` instead of conventional lowercase `props`, and `student` instead of the requested `Student` default value.
+
+**Important lessons from mistakes:**
+- TypeScript prop definitions determine whether a prop is required at the call site.
+- Read-only means “the child should not modify the received value,” not “the parent cannot pass or later change values.”
+- `{}` in JSX means evaluate JavaScript here; the resulting value determines what is passed or rendered.
+- Parent/child direction must be tracked carefully when reasoning about props and children.
+- `children` is still a prop; it is simply populated from content placed between component tags.
+- The parent controls what content is provided, while the child controls where that content is rendered.
+- Working code can still be improved through naming conventions and clearer type organization.
+
+**Questions still open:**
+- No blocking questions.
+- Conditional rendering with boolean values is intentionally deferred to Day 7.
+- More advanced props patterns and component API design are deferred until later component-design practice.
+
+**Confidence (0–5):**
+- Props: 4/5
+- Overall React: 4/5
+
+**Mentor assessment:**
+- Day 5 objectives were successfully completed.
+- The user demonstrated understanding through reasoning, prediction, correction, and independent implementation rather than syntax copying.
+- The user can explain why props exist, type and destructure them, distinguish required/optional/default behavior, and reason about one-way parent-to-child data flow.
+- Understanding of `children` improved from initial confusion to a correct explanation of both data ownership and rendering position.
+- Props should not yet be marked mastered; future Events, State, and component communication lessons should naturally reinforce the model.
+
+**Revision needed:**
+- Light revision: Yes
+- Revision file created: `Day-05-React-Props-Revision.md`
+
+**Next topic:**
+- Day 6 — Events.
+---
+
 # 12. COMPLETED TOPICS
 
 Completed topics:
@@ -737,8 +859,8 @@ Completed topics:
 - [x] Day 1 — React mental model / What is React & Why React — 2026-09-01 — 4/5
 - [x] Day 2 — React project setup — 2026-09-01 — 4/5
 - [x] Day 3 — JSX — 2026-09-02 — 4/5
-- [ ] Day 4 — Components
-- [ ] Day 5 — Props
+- [x] Day 4 — Components — 2026-09-02 — 4/5
+- [x] Day 5 — Props — 2026-09-02 — 4/5
 - [ ] Day 6 — Events
 - [ ] Day 7 — Conditional Rendering
 - [ ] Day 8 — Lists & Keys
@@ -943,22 +1065,23 @@ But any meaningful roadmap change should be recorded in this file.
 | 2026-09-02 | Completed Day 3 | Built and tested the JSX mental model and core syntax rules; next step is components |
 | 2026-09-02 | Fixed day/phase sequencing | Clarified that Day 1 = React mental model, Day 2 = project setup, and Day 3 = JSX; Day 3 begins Phase 1 |
 | 2026-09-02 | Completed Day 4 | Built and tested the React components mental model; next step is props |
+| 2026-09-02 | Completed Day 5 | Built and tested the React props mental model, including typed props, defaults, one-way data flow, and children; next step is events |
 
 ---
 
 # 16. CURRENT SESSION NOTES
 
-**Current understanding:** Understands the Day 1 React mental model, Day 2 project setup, Day 3 JSX, and Day 4 Components at approximately 4/5 confidence. Can explain JSX fundamentals, component purpose, PascalCase naming, `<Component />` versus manual function calls, component composition, reuse, component trees, direct-child versus descendant relationships, and Fragment versus real DOM wrappers.
+**Current understanding:** Understands Day 1 React mental model, Day 2 project setup, Day 3 JSX, Day 4 Components, and Day 5 Props at approximately 4/5 confidence. Can explain reusable components receiving different data, parent-to-child props flow, props objects, destructuring, TypeScript prop types, optional props, default values, read-only props, one-way data flow, and `children`.
 
 **Important context:** The user selected the TypeScript variant for the Vite React project and has foundational TypeScript knowledge. Use `.tsx` examples rather than `.jsx` examples for this project.
 
-**Important learning note:** The user benefits from precise terminology and reasoning from actual code structure. One mistake during Day 3 involved incorrectly classifying a valid single `<div>` root as invalid; reinforce careful structural reading rather than just repeating the rule.
+**Important learning note:** The user benefits from precise terminology and reasoning from actual code structure. For Props, reinforce the distinction between JavaScript concepts (object destructuring/default parameters) and React concepts (props and one-way data flow).
 
-**Immediate teaching priority:** Teach Props from first principles. Connect props directly to the user's existing understanding of reusable components and explain parent-to-child data flow without assuming prior knowledge.
+**Recent confusion resolved:** `children` initially caused confusion, but the user now correctly understands that the parent provides the content and the child receives it as the `children` prop and decides where to render it.
 
-**Next session:** Day 5 — Props.
+**Immediate teaching priority:** Teach Day 6 — Events from first principles. Connect user interaction to the existing component and props mental model. Do not assume understanding of event handlers, callback functions in React, or event-driven UI updates.
 
-
+**Next session:** Day 6 — Events.
 ---
 
 # 19. DAY 4 — REACT COMPONENTS
