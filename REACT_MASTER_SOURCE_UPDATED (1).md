@@ -942,20 +942,105 @@ But any meaningful roadmap change should be recorded in this file.
 | 2026-09-01 | Completed Day 2 | Built and tested the React project setup mental model; next step is JSX |
 | 2026-09-02 | Completed Day 3 | Built and tested the JSX mental model and core syntax rules; next step is components |
 | 2026-09-02 | Fixed day/phase sequencing | Clarified that Day 1 = React mental model, Day 2 = project setup, and Day 3 = JSX; Day 3 begins Phase 1 |
+| 2026-09-02 | Completed Day 4 | Built and tested the React components mental model; next step is props |
 
 ---
 
 # 16. CURRENT SESSION NOTES
 
-**Current understanding:** Understands the Day 1 React mental model at approximately 4/5 confidence, Day 2 project setup at approximately 4/5 confidence, and Day 3 JSX at approximately 4/5 confidence. Can explain JSX as HTML-like syntax working alongside JavaScript, use JavaScript expressions inside `{}`, distinguish variables from strings/plain JSX text, apply the root/Fragment rule, use JSX attributes, and build a small JSX component independently.
+**Current understanding:** Understands the Day 1 React mental model, Day 2 project setup, Day 3 JSX, and Day 4 Components at approximately 4/5 confidence. Can explain JSX fundamentals, component purpose, PascalCase naming, `<Component />` versus manual function calls, component composition, reuse, component trees, direct-child versus descendant relationships, and Fragment versus real DOM wrappers.
 
 **Important context:** The user selected the TypeScript variant for the Vite React project and has foundational TypeScript knowledge. Use `.tsx` examples rather than `.jsx` examples for this project.
 
 **Important learning note:** The user benefits from precise terminology and reasoning from actual code structure. One mistake during Day 3 involved incorrectly classifying a valid single `<div>` root as invalid; reinforce careful structural reading rather than just repeating the rule.
 
-**Immediate teaching priority:** Teach React components from first principles. Explain the problem components solve, the mental model of function components, component naming, composition, and reusable UI. Do not assume JSX mastery beyond the recorded 4/5 confidence.
+**Immediate teaching priority:** Teach Props from first principles. Connect props directly to the user's existing understanding of reusable components and explain parent-to-child data flow without assuming prior knowledge.
 
-**Next session:** Day 4 — Components.
+**Next session:** Day 5 — Props.
+
+
+---
+
+# 19. DAY 4 — REACT COMPONENTS
+
+**Status:** Completed
+
+**Topics learned:**
+- What React components are and the problem they solve.
+- Function components and components returning JSX.
+- Component naming with PascalCase.
+- Defining a component versus using/rendering a component.
+- `<Component />` versus manually calling `Component()`.
+- Component reuse.
+- Component composition.
+- Component trees and nested components.
+- Parent, direct child, ancestor, and descendant relationships.
+- Fragment versus a real DOM wrapper such as `<div>`.
+- Basic judgment about when something should or should not become its own component.
+
+**Key concepts understood:**
+- A component is a meaningful piece of UI packaged as a reusable unit.
+- Large UIs can be broken into smaller components and composed into a complete interface.
+- React components are JavaScript/TypeScript functions, but normal React usage is through JSX such as `<Header />`, allowing React to manage rendering.
+- Component names should use PascalCase.
+- One component definition can be reused multiple times.
+- A parent component can compose smaller child components.
+- A component tree can distinguish direct children from deeper descendants.
+- A Fragment groups JSX without creating an extra browser DOM element.
+- A `<div>` creates a real HTML element and is useful when an actual wrapper serves a purpose such as layout or styling.
+- Not every HTML element should automatically become its own component; meaningful boundaries matter.
+
+**Concepts still unclear:**
+- No major conceptual confusion remained by the end of the session.
+- Component behavior with props, dynamic data, and parent-to-child data flow has not yet been learned and should not be assumed.
+- More advanced component-boundary decisions will need real project experience.
+
+**Practice completed:**
+- Exercise: Built `Header`, `Main`, and `Footer` components and composed them inside `App`.
+- Challenge: Built `Navbar`, `Avatar`, `UserInfo`, `Profile`, and `Footer` with nested composition.
+- Component-thinking exercises involving product pages and blog card hierarchies.
+- Final independent coding challenge: Built `WebsiteHeader`, `ProfileImage`, `ProfileDetails`, `ProfileSection`, and `WebsiteFooter`, then composed them inside `App`.
+
+**Challenge result:**
+- Successfully completed all coding challenges independently.
+- Correctly identified parent, direct-child, and descendant relationships.
+- Demonstrated good early judgment about avoiding unnecessary component fragmentation.
+- Correctly reasoned about when a Fragment is sufficient versus when a real wrapper may be useful.
+
+**Mistakes made:**
+- Initially assumed that a Fragment and `<div>` essentially do the same work.
+- Initially gave an incomplete explanation of the distinction between direct children and descendants.
+- Minor requirement mismatch in one challenge: displayed “My Portfolio” instead of the requested “My Profile”; React logic itself was correct.
+
+**Important lessons from mistakes:**
+- Fragment and `<div>` can both group JSX, but only `<div>` creates an actual browser DOM element.
+- A component can be a descendant of another component without being its direct child.
+- Reusability is not the only reason to extract a component; complexity, independent behavior, meaningful UI boundaries, and readability also matter.
+
+**Questions still open:**
+- How props make reusable components display different data.
+- How data flows from parent components to child components.
+- More advanced component architecture and component communication patterns.
+
+**Confidence (0–5):**
+- Components: 4/5
+- Overall React: 4/5
+
+**Mentor assessment:**
+- Day 4 objectives were successfully completed.
+- The user demonstrated understanding through reasoning and independent implementation rather than copying only.
+- Component composition and component-tree reasoning are strong for the current learning stage.
+- The user is beginning to make sensible decisions about component boundaries.
+- Props are the correct next topic because they will test and extend the current understanding of reuse.
+
+**Revision needed:**
+- Light revision: Yes
+- Revision file created: `Day-04-React-Components-Revision.md`
+
+**Next topic:**
+- Day 5 — Props.
+
+---
 
 # 17. END-OF-DAY UPDATE TEMPLATE
 
