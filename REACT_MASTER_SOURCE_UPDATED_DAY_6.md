@@ -28,16 +28,16 @@
 
 # 2. CURRENT STATUS
 
-**Current Day:** Day 5  
+**Current Day:** Day 6  
 **Current Phase:** Phase 1 — React Fundamentals  
-**Current Topic:** Props  
+**Current Topic:** Events  
 **Status:** Completed
 
-**Overall Progress:** 9%
+**Overall Progress:** 11%
 
-**Last Completed Day:** Day 5
+**Last Completed Day:** Day 6
 
-**Next Planned Topic:** Events
+**Next Planned Topic:** Conditional Rendering
 
 ---
 
@@ -852,6 +852,111 @@ Record meaningful exercises and challenges.
 - Day 6 — Events.
 ---
 
+# 21. DAY 6 — REACT EVENTS
+
+**Status:** Completed
+
+**Topics learned:**
+- What UI events are and why interactive applications need them.
+- Event handlers and the relationship between an event and a handler function.
+- `onClick` as the first React event prop.
+- Function reference versus function invocation.
+- Why `onClick={handleClick}` waits while `onClick={handleClick()}` executes during rendering.
+- Event handler naming conventions such as `handleClick`.
+- Reusing handlers across multiple buttons.
+- JavaScript lexical scope and why handlers inside a component can access component-local props/variables.
+- Passing arguments to handlers.
+- Arrow-function wrappers for delaying a function call and supplying custom arguments.
+- Events combined with props.
+- Component definition versus multiple component instances/usages.
+- Passing functions as props.
+- Parent-owned logic and child callbacks.
+- Callback naming convention such as `handleBuy` in the parent and `onBuy` as the child prop.
+- Basic event object mental model.
+- Difference between React-provided event arguments and custom arguments chosen by the developer.
+
+**Key concepts understood:**
+- Events allow React applications to respond to user interactions.
+- An event handler defines what code should run when an event happens.
+- `onClick={handleClick}` passes a function reference to React for later execution.
+- `onClick={handleClick()}` invokes the function immediately while rendering because parentheses execute the function.
+- When no custom argument is needed, a handler can usually be passed directly.
+- When a custom argument is needed, a wrapper such as `onClick={() => handleBuy(name)}` delays execution until the click and explicitly provides `name`.
+- The wrapper function is itself passed to React; its body does not run during render.
+- Functions inside a component can access props and other component-local values because of normal JavaScript lexical scope.
+- One component definition can create many separate component instances, each receiving different props.
+- Functions are JavaScript values and can be passed through props.
+- A parent can own business logic, pass a callback to a child, and the child can call that callback when a user interacts with the child.
+- `onSomething` is a useful callback-prop naming convention, while `handleSomething` commonly names the actual handler implementation.
+- React can provide an event object to a handler automatically when the event happens.
+- The event object is simply an argument supplied by React; the handler parameter receives it like any normal JavaScript function parameter.
+- `onClick={onBuy}` and `onClick={() => onBuy(name)}` differ in who controls the argument: React can provide event information in the direct form, while the wrapper explicitly provides custom data.
+
+**Concepts still unclear:**
+- No major conceptual blocker remained at the end of the session.
+- The event object is understood conceptually, but event properties and TypeScript event types were intentionally not studied in depth.
+- `React.MouseEvent<HTMLButtonElement>` and other event typings are deferred to Day 44.
+- `onChange`, forms, and other event types remain future topics and should not be assumed.
+
+**Practice completed:**
+- Explained and compared `onClick={handleClick}` versus `onClick={handleClick()}`.
+- Built an `ActionButtons` component with Like, Share, and Subscribe handlers.
+- Reasoned about handlers inside versus outside a component using JavaScript scope.
+- Built greeting buttons that pass different names using arrow-function wrappers.
+- Built a reusable `UserButton` component using a `name` prop and event behavior.
+- Correctly explained one component definition versus multiple component instances.
+- Built a reusable `ActionButton` that receives a function as a prop.
+- Built a `ProductCard` with `name`, `price`, and `onBuy` props.
+- Passed the parent `handleBuy` function to multiple product instances.
+- Used `onClick={() => onBuy(name)}` to pass child-specific data back through the callback.
+- Debugged broken event code involving immediate invocation in both `onClick={onBuy(name)}` and `onBuy={handleBuy()}`.
+
+**Challenge result:**
+- Successfully completed the reusable `ProductCard` callback challenge independently.
+- Correctly typed `onBuy: (name: string) => void`.
+- Correctly passed the parent handler by reference.
+- Correctly used an arrow-function wrapper to delay execution and pass the current product name.
+- Successfully identified the core event bugs in a debugging challenge without needing the full solution first.
+- Explained the crucial difference between direct function passing and wrapper functions with strong reasoning.
+
+**Mistakes made:**
+- Initially needed clarification around component definition versus multiple component instances; corrected and understood using the blueprint analogy.
+- Initially felt confused about the event object; resolved by connecting it to ordinary JavaScript parameters and arguments.
+- Minor TypeScript naming convention issue: used `productCardProps` instead of recommended PascalCase `ProductCardProps`.
+- Minor UI requirement mismatch: the Buy button initially displayed the product name instead of the label `Buy`. React logic was correct.
+
+**Important lessons from mistakes:**
+- One component definition can produce many independent component instances/usages with different props.
+- An event object is not mysterious React syntax; React supplies it as an argument when calling the handler.
+- Parentheses always matter when reasoning about handlers: `functionName` passes a reference, while `functionName()` invokes immediately.
+- A wrapper is not only for delay; it also lets the developer explicitly control which arguments are passed.
+- Working code can still be improved through naming conventions and meeting UI requirements precisely.
+
+**Questions still open:**
+- No blocking questions.
+- Detailed event-object properties and event typing are intentionally deferred.
+- Conditional rendering is the next topic and will build on the existing JSX and JavaScript foundations.
+
+**Confidence (0–5):**
+- Events: 4.5/5
+- Overall React: 4/5
+
+**Mentor assessment:**
+- Day 6 objectives were successfully completed with strong conceptual understanding.
+- The user demonstrated reasoning rather than memorization, especially around function reference versus invocation and the purpose of arrow-function wrappers.
+- The user can now trace a complete interaction flow from user click to child callback to parent logic.
+- The event object required a slower explanation, but the user ultimately explained it accurately.
+- Events should be considered completed but naturally reinforced through forms, state, conditional rendering, and later component communication.
+
+**Revision needed:**
+- Light revision: Yes
+- Comprehensive revision file created: `REACT_DAY_6_EVENTS_REVISION.md`
+
+**Next topic:**
+- Day 7 — Conditional Rendering.
+
+---
+
 # 12. COMPLETED TOPICS
 
 Completed topics:
@@ -861,7 +966,7 @@ Completed topics:
 - [x] Day 3 — JSX — 2026-09-02 — 4/5
 - [x] Day 4 — Components — 2026-09-02 — 4/5
 - [x] Day 5 — Props — 2026-09-02 — 4/5
-- [ ] Day 6 — Events
+- [x] Day 6 — Events — 2026-09-03 — 4.5/5
 - [ ] Day 7 — Conditional Rendering
 - [ ] Day 8 — Lists & Keys
 - [ ] Day 9 — Fundamentals Practice Project
@@ -1066,12 +1171,13 @@ But any meaningful roadmap change should be recorded in this file.
 | 2026-09-02 | Fixed day/phase sequencing | Clarified that Day 1 = React mental model, Day 2 = project setup, and Day 3 = JSX; Day 3 begins Phase 1 |
 | 2026-09-02 | Completed Day 4 | Built and tested the React components mental model; next step is props |
 | 2026-09-02 | Completed Day 5 | Built and tested the React props mental model, including typed props, defaults, one-way data flow, and children; next step is events |
+| 2026-09-03 | Completed Day 6 | Built and tested the React events mental model, including function references, invocation, wrappers, callback props, parent-child event flow, and the basic event object; next step is conditional rendering |
 
 ---
 
 # 16. CURRENT SESSION NOTES
 
-**Current understanding:** Understands Day 1 React mental model, Day 2 project setup, Day 3 JSX, Day 4 Components, and Day 5 Props at approximately 4/5 confidence. Can explain reusable components receiving different data, parent-to-child props flow, props objects, destructuring, TypeScript prop types, optional props, default values, read-only props, one-way data flow, and `children`.
+**Current understanding:** Understands Day 1 React mental model, Day 2 project setup, Day 3 JSX, Day 4 Components, Day 5 Props, and Day 6 Events. Events are currently one of the stronger fundamentals at approximately 4.5/5 confidence. Can explain event handlers, function references versus invocation, passing arguments through wrapper functions, JavaScript scope in handlers, functions as props, parent-child callback flow, component instances, and the basic event object mental model.
 
 **Important context:** The user selected the TypeScript variant for the Vite React project and has foundational TypeScript knowledge. Use `.tsx` examples rather than `.jsx` examples for this project.
 
@@ -1079,9 +1185,13 @@ But any meaningful roadmap change should be recorded in this file.
 
 **Recent confusion resolved:** `children` initially caused confusion, but the user now correctly understands that the parent provides the content and the child receives it as the `children` prop and decides where to render it.
 
-**Immediate teaching priority:** Teach Day 6 — Events from first principles. Connect user interaction to the existing component and props mental model. Do not assume understanding of event handlers, callback functions in React, or event-driven UI updates.
+**Recent confusion resolved:** The event object was initially confusing, but the user now understands that React provides the event object as an argument when the event happens.
 
-**Next session:** Day 6 — Events.
+**Important learning note:** The user strongly understands the distinction between passing a function reference and invoking a function. Continue reinforcing this distinction because it will appear again in state updates, effects, callbacks, and forms.
+
+**Immediate teaching priority:** Teach Day 7 — Conditional Rendering from first principles. Connect JavaScript conditions to React UI decisions. Do not assume understanding of ternaries, `&&`, or rendering multiple UI states in React.
+
+**Next session:** Day 7 — Conditional Rendering.
 ---
 
 # 19. DAY 4 — REACT COMPONENTS
