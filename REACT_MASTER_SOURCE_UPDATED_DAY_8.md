@@ -28,16 +28,16 @@
 
 # 2. CURRENT STATUS
 
-**Current Day:** Day 6  
+**Current Day:** Day 8  
 **Current Phase:** Phase 1 — React Fundamentals  
-**Current Topic:** Events  
+**Current Topic:** Lists & Keys  
 **Status:** Completed
 
-**Overall Progress:** 11%
+**Overall Progress:** 16%
 
-**Last Completed Day:** Day 6
+**Last Completed Day:** Day 8
 
-**Next Planned Topic:** Conditional Rendering
+**Next Planned Topic:** Day 9 — Fundamentals Practice Project
 
 ---
 
@@ -541,6 +541,7 @@ Track concepts that need revision.
 | React basics | 4/5 | No major blocker; syntax and implementation not yet learned | No immediate revision |
 | Components | 4/5 | Needs more real-project application before mastery | Light revision |
 | Props | 4/5 | Core concepts understood; needs reinforcement through future interaction/state topics | Light revision |
+| Lists & Keys | 4.5/5 | Core concepts are strong; implicit vs explicit return needs light reinforcement | Light revision |
 
 Confidence scale:
 - 0 = Don't understand
@@ -570,6 +571,12 @@ Record meaningful exercises and challenges.
 | 5 | Children data-flow challenge | Completed | Correctly explained that parent decides what children to pass and child decides where to render them. |
 
 ---
+
+| 8 | Fruit list rendering | Completed | Correctly moved the repeating `<li>` inside one `<ul>` and understood what `.map()` repeats. |
+| 8 | Student list + props challenge | Completed | Independently mapped objects to `Student` components, passed props, and used `student.id` as key. |
+| 8 | Lists + conditional rendering | Completed | Combined mapped data, typed props, keys, and `isActive` conditional UI. |
+| 8 | Product integration challenge | Completed | Independently combined arrays, `.map()`, components, props, keys, TypeScript, and stock-status rendering. |
+| 8 | Lists conceptual recap | Completed | Correctly explained keys, stable IDs vs indexes, and implicit vs explicit return. |
 
 # 10. LEARNING LOG
 
@@ -957,6 +964,93 @@ Record meaningful exercises and challenges.
 
 ---
 
+
+## Day 8 — Lists & Keys
+**Status:** Completed
+
+**Topics learned:**
+- Why repeated UI should be generated dynamically from data.
+- Using JavaScript `.map()` inside JSX.
+- Transforming arrays into JSX elements and component instances.
+- Keeping non-repeating containers outside `.map()` and repeating only the intended UI.
+- Why React requires a `key` for dynamically rendered sibling items.
+- `key` as React's internal identity mechanism rather than visible UI.
+- Stable IDs versus array indexes.
+- Rendering reusable components from arrays and passing object properties as props.
+- Combining lists with props and conditional rendering.
+- Implicit versus explicit return in arrow-function callbacks used with `.map()`.
+
+**Key concepts understood:**
+- `.map()` creates a new array and can transform each data item into JSX.
+- React can render the resulting array of JSX elements.
+- A list item's `key` helps React match items between renders when items are added, removed, or moved.
+- A stable ID represents item identity, while an index represents current position.
+- `key={item.id}` is generally safer than `key={index}` when stable IDs exist.
+- `key` is not displayed automatically; it is metadata used internally by React.
+- `.map()` can create one reusable component instance per data object.
+- Object properties can be passed as props to the mapped component.
+- Each mapped component instance receives its own independent props.
+- Conditional rendering can depend on each object's boolean data.
+- `() => (JSX)` uses implicit return.
+- `() => { return JSX; }` uses explicit return.
+- `() => { JSX; }` does not return the JSX and therefore does not provide list elements to render.
+
+**Practice completed:**
+- Explained JavaScript `.map()` behavior and its non-mutating nature.
+- Rendered a fruit array into list items and corrected the placement of the `<ul>` container.
+- Explained why React needs keys and why stable IDs are preferred over indexes.
+- Created a typed `Student` component and rendered multiple students using `.map()`.
+- Passed mapped object properties as props and used `student.id` as the key.
+- Added an `isActive` boolean prop and rendered Active/Inactive conditionally.
+- Predicted the result of different `.map()` callback return styles.
+- Completed an independent product-list integration challenge.
+
+**Challenge result:**
+- Successfully built a `Product` component with typed `name`, `price`, and `inStock` props.
+- Correctly rendered all products dynamically using `.map()`.
+- Correctly used `product.id` as the key.
+- Correctly passed object properties as props.
+- Correctly used a ternary for stock status.
+- Successfully explained the conceptual reasons behind keys, stable IDs, and return styles without relying on copied definitions.
+
+**Mistakes made:**
+- Initially omitted the `key` when first rendering a simple fruit list, then identified that each mapped item needs one.
+- Initially had uncertainty about explicit return syntax and thought JSX inside an explicit-return callback needed additional curly braces.
+- Initially predicted that a `.map()` callback with curly braces but no `return` might cause an error; clarified that it is valid JavaScript but returns `undefined`, so React has nothing useful from that callback to render.
+- In the first product challenge output, displayed only the price value rather than the exact requested `Price: 80000` label; React logic itself was correct.
+
+**Important lessons from mistakes:**
+- Curly braces in an arrow function create a function body; they require an explicit `return` if a value should be returned.
+- Parentheses around multiline JSX are formatting/grouping syntax and do not replace `return` when using a function body.
+- Test data should cover both branches of conditional UI, not only one boolean state.
+- Working React logic should still be checked against exact UI requirements.
+
+**Questions still open:**
+- No blocking questions remain.
+- Detailed reconciliation behavior is not yet studied; keys are currently understood at the practical identity level.
+- Advanced list-state behavior will be reinforced later when arrays themselves become state.
+
+**Confidence (0–5):**
+- Lists & Keys: 4.5/5
+- Overall React: 4/5
+
+**Mentor assessment:**
+- Day 8 objectives were successfully completed.
+- The user demonstrated strong independent ability to combine arrays, `.map()`, components, props, TypeScript, keys, and conditional rendering.
+- Understanding of keys is conceptual rather than purely rule-based: the user can explain identity versus position.
+- The implicit/explicit return distinction required correction but was successfully understood afterward; it should receive light future reinforcement.
+- The user is ready to move from individual fundamentals toward a small integration project.
+
+**Revision needed:**
+- Light revision: Yes
+- Main revision point: implicit vs explicit return in arrow functions.
+- Comprehensive revision file created: `React Learning Journey — Day 8 Revision: Lists & Keys`.
+
+**Next topic:**
+- Day 9 — Fundamentals Practice Project.
+- The project should integrate JSX, Components, Props, Events, Conditional Rendering, Lists, and Keys before moving into State.
+---
+
 # 12. COMPLETED TOPICS
 
 Completed topics:
@@ -967,8 +1061,8 @@ Completed topics:
 - [x] Day 4 — Components — 2026-09-02 — 4/5
 - [x] Day 5 — Props — 2026-09-02 — 4/5
 - [x] Day 6 — Events — 2026-09-03 — 4.5/5
-- [ ] Day 7 — Conditional Rendering
-- [ ] Day 8 — Lists & Keys
+- [x] Day 7 — Conditional Rendering — 2026-09-04 — Completed
+- [x] Day 8 — Lists & Keys — 2026-09-05 — 4.5/5
 - [ ] Day 9 — Fundamentals Practice Project
 - [ ] Day 10 — Understanding State
 - [ ] Day 11 — useState
@@ -1344,3 +1438,417 @@ Do not restart from the beginning unless the learning record indicates that a re
 The goal is not to finish the roadmap quickly.
 
 The goal is to become capable of **understanding, building, debugging, explaining, and making engineering decisions in React independently.**
+
+
+---
+
+# DAY 7 — CONDITIONAL RENDERING
+
+**Status:** Completed  
+**Confidence:** 4.5/5  
+**Phase:** Phase 1 — React Fundamentals
+
+## Main Goal
+
+Learn how React can display different UI based on JavaScript conditions and understand which conditional rendering pattern is appropriate for different situations.
+
+## Concepts Learned
+
+### 1. Conditional Rendering
+
+Conditional rendering means displaying different UI, elements, or components based on specific conditions.
+
+Mental model:
+
+```text
+JavaScript condition
+        ↓
+React evaluates the condition
+        ↓
+Appropriate UI is rendered
+```
+
+Conditional UI can depend on:
+- loading state
+- error state
+- authentication
+- user role
+- user actions
+- available data
+- any JavaScript boolean condition
+
+---
+
+### 2. Ternary Operator
+
+Syntax:
+
+```jsx
+condition ? A : B
+```
+
+Use when there are two alternatives.
+
+Example:
+
+```jsx
+{isLoggedIn ? <Dashboard /> : <Login />}
+```
+
+Decision rule:
+
+```text
+Condition true  → A
+Condition false → B
+```
+
+Important JSX connection:
+
+Curly braces `{}` allow JavaScript expressions to be evaluated inside JSX.
+
+Outside JSX, normal JavaScript can be written directly:
+
+```jsx
+return isPremium ? <PremiumDashboard /> : <FreeDashboard />;
+```
+
+---
+
+### 3. Logical AND (`&&`)
+
+Syntax:
+
+```jsx
+condition && A
+```
+
+Use when something should appear only when a condition is true and there is no alternative UI.
+
+Example:
+
+```jsx
+{hasNotifications && <Notification />}
+```
+
+Decision rule:
+
+```text
+Condition true  → Show something
+Condition false → Show nothing
+```
+
+---
+
+### 4. `if` Statements and Early Returns
+
+React components are JavaScript functions, so normal JavaScript conditions can be used before returning JSX.
+
+Example:
+
+```jsx
+if (isLoading) {
+  return <Loading />;
+}
+
+return <Dashboard />;
+```
+
+Important concept:
+
+A `return` does two things:
+1. returns the UI value
+2. stops the component function execution
+
+Therefore, later conditions are not checked after a matching early return.
+
+---
+
+### 5. Logical NOT (`!`)
+
+`!` reverses a boolean value.
+
+Examples:
+
+```text
+!true  → false
+!false → true
+```
+
+Example:
+
+```jsx
+if (!isLoggedIn) {
+  return <Login />;
+}
+```
+
+Meaning: if the user is NOT logged in, return the login UI.
+
+---
+
+### 6. Multiple UI States and Priority
+
+Real applications can have several possible states:
+
+```text
+Loading
+Error
+Authentication
+Normal/Success UI
+```
+
+Example:
+
+```jsx
+if (isLoading) return <Loading />;
+if (hasError) return <Error />;
+if (!isLoggedIn) return <Login />;
+
+return <Dashboard />;
+```
+
+Key lesson:
+
+> Condition order determines UI priority because the first matching early return ends component execution.
+
+---
+
+### 7. Choosing the Correct Pattern
+
+Current decision guide:
+
+| Situation | Recommended Pattern |
+|---|---|
+| Two alternatives | Ternary |
+| Show something or nothing | `&&` |
+| Multiple priority states | `if` + early returns |
+| Complex logic before JSX | `if` |
+| Entire component output changes | Often early return |
+
+Simplified rule:
+
+```text
+A or B?
+→ Ternary
+
+A or nothing?
+→ &&
+
+Several prioritized states?
+→ if + early returns
+```
+
+---
+
+## Major Mistake and Debugging Lesson
+
+Initial implementation:
+
+```jsx
+{!isLoggedIn && <Login />}
+{isAdmin ? <AdminDashboard /> : <UserDashboard />}
+```
+
+Problem:
+
+If:
+
+```text
+isLoggedIn = false
+isAdmin = true
+```
+
+both `<Login />` and `<AdminDashboard />` can render.
+
+The incorrect assumption was that the first conditional JSX expression would stop later expressions.
+
+Critical lesson:
+
+```text
+&& controls one JSX expression.
+
+return stops the entire component function.
+```
+
+Corrected approach:
+
+```jsx
+if (!isLoggedIn) {
+  return <Login />;
+}
+
+if (!isAdmin) {
+  return <UserDashboard />;
+}
+
+return <AdminDashboard />;
+```
+
+Additional reasoning learned:
+
+Previous conditions reduce what needs to be checked later. If execution passes the login check, the user is already known to be logged in. If it also passes the non-admin check, the remaining state is admin.
+
+---
+
+## Exercises and Challenges Completed
+
+### Exercise 1: Ternary Notification UI
+Successfully used a ternary inside JSX to show either:
+- "You have new notifications"
+- "No new notifications"
+
+### Exercise 2: Premium vs Free Dashboard
+Successfully used a ternary to choose between two components.
+
+### Exercise 3: Login Profile
+Successfully used `if` and early return to block profile UI when the user is not logged in.
+
+### Exercise 4: Sale Message
+Successfully used `&&` to show a sale message only when the sale was active.
+
+### Exercise 5: Loading + Authentication
+Successfully handled loading before authentication using early returns.
+
+### Exercise 6: Multiple Pattern Selection
+Correctly chose:
+- ternary for two alternatives
+- `&&` for optional UI
+- early returns for prioritized loading/error/authentication states
+
+### Mini Challenge: User Account
+Successfully combined:
+- loading state
+- error state
+- authentication state
+- optional notification UI
+
+### Role-Based UI Challenge
+Successfully implemented mutually exclusive:
+- Login
+- User dashboard
+- Admin dashboard
+
+Important debugging improvement occurred here after the first implementation allowed conflicting UI to render.
+
+### Final Independent Challenge: Smart Dashboard
+Successfully built a dashboard handling:
+- loading
+- error
+- authentication
+- admin vs normal user
+- optional notifications
+
+Correctly chose early returns, ternary, and `&&` without being told which pattern to use.
+
+---
+
+## Component Design Insight
+
+The final challenge initially used separate `Admin` and `User` components with mostly duplicated UI.
+
+Lesson:
+
+Creating separate components is valid, but not always necessary.
+
+If only a small piece changes:
+
+```jsx
+<h1>Welcome {isAdmin ? "Admin" : "User"}!</h1>
+```
+
+may be simpler.
+
+Separate components become more useful when:
+- UI differs significantly
+- logic differs
+- complexity grows
+- reuse is needed
+
+Principle:
+
+> Do not create components just because you can. Create them when they represent meaningful reusable UI or independent complexity.
+
+---
+
+## Final Revision Performance
+
+Recall questions showed strong understanding of:
+- definition of conditional rendering
+- ternary vs `&&`
+- early return vs conditional JSX
+- login/admin execution flow
+
+Minor reinforcement needed:
+
+Condition order should be understood as UI priority, not merely as "error cannot happen before loading." In real applications, multiple states may theoretically coexist; the developer chooses which state has rendering priority.
+
+---
+
+## Strengths After Day 7
+
+The learner can now:
+
+- explain conditional rendering
+- use ternary operators in React
+- use logical AND (`&&`) correctly
+- use `if` statements inside components
+- understand early returns
+- explain why `return` stops component execution
+- use logical NOT (`!`)
+- handle multiple UI states
+- reason about condition priority
+- select conditional rendering patterns independently
+- debug conflicting conditional UI
+- combine multiple conditional rendering techniques
+
+---
+
+## Weak Areas / Future Reinforcement
+
+- Condition priority in real asynchronous applications
+- Complex combinations of loading, error, authentication, and data states
+- Avoiding deeply nested ternaries when UI logic grows
+- Revisiting conditional rendering with React state and API data
+
+These will be revisited naturally during:
+- State
+- useEffect
+- API integration
+- Data fetching
+- Error handling
+
+---
+
+## Mentor Assessment
+
+**Topic Understanding:** Strong  
+**Independent Problem Solving:** Strong  
+**Pattern Selection:** Strong  
+**Debugging:** Improved significantly through identifying and fixing conflicting JSX conditions  
+**Confidence:** 4.5/5
+
+**Day 7 Status:** Completed
+
+---
+
+# NEXT LEARNING STEP
+
+## Day 8 — Lists and Keys
+
+Primary question:
+
+> How can we take JavaScript arrays and dynamically render multiple React elements?
+
+Key prerequisite connection:
+
+```jsx
+.map()
+```
+
+Upcoming concepts:
+- rendering lists from arrays
+- JSX generated with `.map()`
+- why React needs `key`
+- choosing stable keys
+- common key mistakes
+- list rendering practice
