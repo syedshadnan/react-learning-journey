@@ -28,16 +28,16 @@
 
 # 2. CURRENT STATUS
 
-**Current Day:** Day 8  
+**Current Day:** Day 9  
 **Current Phase:** Phase 1 — React Fundamentals  
-**Current Topic:** Lists & Keys  
+**Current Topic:** Fundamentals Integration Project  
 **Status:** Completed
 
-**Overall Progress:** 16%
+**Overall Progress:** 18%
 
-**Last Completed Day:** Day 8
+**Last Completed Day:** Day 9
 
-**Next Planned Topic:** Day 9 — Fundamentals Practice Project
+**Next Planned Topic:** Day 10 — Understanding State
 
 ---
 
@@ -1852,3 +1852,309 @@ Upcoming concepts:
 - choosing stable keys
 - common key mistakes
 - list rendering practice
+
+
+---
+
+# DAY 9 — FUNDAMENTALS INTEGRATION PROJECT
+
+**Status:** Completed  
+**Confidence:** 4/5  
+**Phase:** Phase 1 — React Fundamentals
+
+## Main Goal
+
+Combine the React fundamentals learned from Days 3–8 into one small project instead of practicing each concept in isolation.
+
+## Project Completed: Student Dashboard
+
+Built a Student Dashboard using:
+- JSX
+- components and component composition
+- props
+- TypeScript prop types
+- conditional rendering
+- events
+- callback props
+- list rendering with `.map()`
+- React keys
+- `.filter()` and `.length` for derived values
+
+### Final component structure
+
+```text
+App
+├── Header
+├── DashboardSummary
+├── Student (rendered dynamically)
+├── Student (rendered dynamically)
+└── Footer
+```
+
+## Key Concepts Strengthened
+
+### 1. Integrating fundamentals
+The learner successfully combined multiple previously learned concepts into one working application rather than treating them as isolated syntax.
+
+### 2. Props and one-way data flow
+Data flows from parent to child through props. `App` supplied student information and calculated summary data to child components.
+
+### 3. Callback props and child-to-parent communication
+The learner initially needed extra explanation to understand callback flow, but eventually implemented it correctly.
+
+Final mental model:
+
+```text
+Parent creates function
+        ↓
+Parent passes function as prop
+        ↓
+Child receives function
+        ↓
+User interaction occurs
+        ↓
+Child calls function with necessary data
+        ↓
+Parent function executes
+```
+
+The final callback design was:
+
+```tsx
+onView: (name: string, isActive: boolean) => void;
+```
+
+and:
+
+```tsx
+<button onClick={() => onView(name, isActive)}>
+```
+
+with the parent passing:
+
+```tsx
+onView={handleButton}
+```
+
+### 4. Important callback improvement
+An earlier version sent only the student's name and then searched the students array using `.find()`.
+
+This worked but was unnecessarily indirect and could become unreliable if names were duplicated.
+
+Improved approach:
+
+```text
+Child already has required information
+        ↓
+Pass required information directly
+        ↓
+Parent uses it directly
+```
+
+The learner successfully refactored from:
+
+```text
+name → parent searches array → gets status
+```
+
+to:
+
+```text
+name + isActive → parent uses values directly
+```
+
+### 5. Derived values
+The dashboard dynamically calculated:
+- total students with `.length`
+- active students with `.filter(...).length`
+- inactive students with `.filter(...).length`
+
+Important lesson:
+
+> Derive values from existing data instead of hardcoding duplicate values.
+
+### 6. Conditional UI
+The learner used conditional rendering for:
+- Active / Inactive status
+- Enter Portal / View Details button labels
+- different alert messages based on student status
+
+### 7. List rendering and keys
+Students were rendered with `.map()` and the unique student ID was correctly placed directly on the rendered component:
+
+```tsx
+key={student.id}
+```
+
+## Additional Architecture Challenge: StudentList Component
+
+A component-architecture exercise was introduced and initially paused because the learner did not understand the question clearly. It must not be forgotten.
+
+Alternative structure:
+
+```text
+App
+ ↓
+StudentList
+ ↓
+Student
+```
+
+The purpose was to move list rendering responsibility from `App` into a dedicated `StudentList` component.
+
+Important future reinforcement:
+
+A callback from `App` can reach `Student` through an intermediate component:
+
+```text
+App
+ │ passes handleButton
+ ↓
+StudentList
+ │ passes same function
+ ↓
+Student
+ │ user clicks
+ ↓
+handleButton executes
+```
+
+The learner now has the explanation and revision material for this pattern, but this architecture should be revisited in future component-design practice to confirm independent understanding.
+
+## Practice / Project Outcome
+
+The learner independently built the Student Dashboard with:
+- 5 student objects
+- Header
+- DashboardSummary
+- Student cards rendered with `.map()`
+- Footer
+- dynamic active/inactive counts
+- conditional button labels
+- typed callback props
+- button interactions based on student status
+
+## Mistakes and Lessons
+
+### Mistake 1: Searching for data unnecessarily
+Initial approach used `.find()` after receiving only a student's name.
+
+**Lesson:** Pass the information a callback actually needs when that information is already available.
+
+### Mistake 2: Callback flow confusion
+The learner initially struggled to understand why a parent function can be passed to a child and later called by the child.
+
+**Lesson:** Distinguish between passing a function reference and calling a function.
+
+```tsx
+onView={handleButton} // pass
+```
+
+vs.
+
+```tsx
+onView={handleButton()} // call immediately
+```
+
+### Mistake 3: Confusion with intermediate-component challenge
+The first explanation of the `StudentList` architecture was too abstract and caused confusion.
+
+**Mentor instruction for future:** Explain architecture challenges with a concrete before/after component tree and one small code step at a time. Do not jump directly into a complex multi-level callback question.
+
+### Code quality improvements noted
+- Prefer `StudentCard` if the prop type is named `StudentCardProps`.
+- Prefer plural count names such as `totalStudents`, `activeStudents`, and `inactiveStudents`.
+- Use conventional spelling: `Inactive`, not `InActive`.
+
+These were improvements, not functional errors.
+
+## Important Boundary Reached
+
+A final reasoning question was used to identify the limitation of the current knowledge:
+
+> If clicking a button should permanently change a student's status from Active to Inactive, can the current static-data project automatically update the UI?
+
+The learner correctly answered: **No.**
+
+Reason:
+
+```text
+Static data renders UI
+        ↓
+Function can run after click
+        ↓
+But React is not managing changing data
+        ↓
+UI does not automatically update
+```
+
+This naturally leads to the next topic: State.
+
+## Strengths After Day 9
+
+The learner can now reasonably:
+- combine multiple React fundamentals in one project
+- create and compose components
+- design and type props
+- render arrays dynamically
+- use stable keys
+- choose basic conditional rendering patterns
+- handle button events
+- pass callback functions through props
+- send arguments through callbacks
+- calculate derived values from arrays
+- avoid unnecessary array searches in simple callback flows
+- explain basic one-way data flow
+
+## Weak Areas / Future Reinforcement
+
+- Multi-level prop passing (`App → StudentList → Student`)
+- Component-boundary decisions as projects become larger
+- Distinguishing static module data from reactive state
+- More complex callback and state ownership patterns
+
+## Mentor Assessment
+
+**Fundamentals Integration:** Good
+
+**Independent Implementation:** Good. The learner successfully built and progressively improved the project.
+
+**Callback Understanding:** Improved significantly during the session; initially unclear but correctly implemented after step-by-step explanation.
+
+**Architecture Reasoning:** Developing. The StudentList abstraction should be revisited later.
+
+**Readiness for State:** Ready. The learner has reached the natural limitation of static React rendering and correctly recognized why a changing UI requires state.
+
+**Confidence:** 4/5
+
+**Day 9 Status:** Completed
+
+---
+
+# NEXT LEARNING STEP
+
+## Day 10 — Understanding State
+
+Primary question:
+
+> How can React remember changing data and automatically update the UI when that data changes?
+
+Topics:
+- State vs normal variables
+- Why state exists
+- Re-render concept
+- UI as a function of state
+
+Important prerequisite connection:
+
+```text
+Day 9 static data
+      ↓
+User action happens
+      ↓
+Need data to change
+      ↓
+Need React to know about the change
+      ↓
+State
+```
