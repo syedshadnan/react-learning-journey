@@ -28,16 +28,16 @@
 
 # 2. CURRENT STATUS
 
-**Current Day:** Day 9  
+**Current Day:** Day 10  
 **Current Phase:** Phase 1 — React Fundamentals  
-**Current Topic:** Fundamentals Integration Project  
+**Current Topic:** React State and `useState` Fundamentals  
 **Status:** Completed
 
-**Overall Progress:** 18%
+**Overall Progress:** 20%
 
-**Last Completed Day:** Day 9
+**Last Completed Day:** Day 10
 
-**Next Planned Topic:** Day 10 — Understanding State
+**Next Planned Topic:** Day 11 — Object State
 
 ---
 
@@ -204,46 +204,52 @@ Possible projects:
 
 ## PHASE 2 — STATE & INTERACTION
 
-### Day 10 — Understanding State
+### Day 10 — Understanding State & `useState` Fundamentals
 - State vs normal variables
 - Why state exists
+- `useState` syntax
+- Initial state
+- State persistence
 - Re-render concept
-- UI as a function of state
-
-### Day 11 — `useState`
-- `useState`
 - Updating state
-- Previous state
+- Previous-state updater
 - Multiple state values
+- State-driven UI
 
-### Day 12 — Object State
+### Day 11 — Object State
 - Object state
 - Updating objects
 - Immutability
 - Nested object updates
 
-### Day 13 — Array State
+### Day 12 — Array State
 - Add
 - Remove
 - Update
 - Array state patterns
 
-### Day 14 — Forms
+### Day 13 — Forms
 - Input state
 - Controlled components
 - `onChange`
 - Form submission
 
-### Day 15 — Lifting State Up
+### Day 14 — Lifting State Up
 - Shared state
 - Parent state
 - Child → parent communication
 
-### Day 16 — State Practice Project
+### Day 15 — State Practice Project
 Possible projects:
 - Todo App
 - Expense Tracker
 - Shopping Cart
+
+### Day 16 — Rendering & Re-rendering
+- What causes a render
+- Parent/child rendering
+- Common misconceptions
+
 
 ---
 
@@ -2157,4 +2163,317 @@ Need data to change
 Need React to know about the change
       ↓
 State
+```
+
+
+---
+
+# DAY 10 — REACT STATE AND `useState` FUNDAMENTALS
+
+**Status:** Completed  
+**Confidence:** 4/5  
+**Phase:** Phase 2 — State & Interaction
+
+## Main Goal
+
+Understand why React needs state and how changing state causes React to re-render the UI.
+
+## Concepts Learned
+
+### 1. Normal variables vs React state
+The learner initially observed that a normal JavaScript variable can change, but the React UI does not automatically change.
+
+Correct mental model:
+
+```text
+JavaScript variable changes
+↓
+React does not automatically track that change for rendering
+↓
+No automatic re-render
+↓
+UI does not update
+```
+
+Important precision:
+
+> JavaScript can change normal variables. The problem is that React does not automatically watch normal variable changes and re-render because of them.
+
+### 2. What state solves
+State is data managed and remembered by React that can change over time and affect the UI. Updating state tells React that the UI may need to be recalculated.
+
+Core flow:
+
+```text
+User interaction
+↓
+Event handler runs
+↓
+State setter is called
+↓
+React updates/schedules state
+↓
+React re-renders component
+↓
+Updated state is reflected in the UI
+```
+
+### 3. `useState` syntax
+
+```tsx
+const [count, setCount] = useState(0);
+```
+
+The learner understands:
+- `count` = current state value
+- `setCount` = function used to update the state
+- `0` = initial state value
+
+### 4. Initial state and state persistence
+The learner correctly explained that the initial value is used when React creates the state for the first time. On later re-renders, React remembers the latest value.
+
+Example:
+
+```tsx
+const [count, setCount] = useState(0);
+```
+
+If `count` becomes `5`, a re-render does not reset it to `0`.
+
+Strong learner explanation:
+
+> React only uses `0` the very first time the component appears. On every re-render after that, React remembers the current value and ignores the initial value for resetting existing state.
+
+### 5. Multiple independent state values
+The learner worked with number and boolean states in one component and correctly understood that updating one state does not overwrite the others.
+
+Examples:
+
+```tsx
+const [count, setCount] = useState(0);
+const [isOnline, setIsOnline] = useState(true);
+const [isLoggedIn, setIsLoggedIn] = useState(false);
+```
+
+### 6. State data types
+State can hold normal JavaScript values. The learner identified:
+- number
+- string
+- boolean
+- array of objects
+
+Future reinforcement: object and array state updates will be taught in dedicated upcoming lessons.
+
+### 7. Direct state update vs previous-state updater
+The learner learned the decision rule:
+
+```text
+Exact next value already known
+↓
+Direct value update
+
+Next value depends on previous state
+↓
+Previous-state updater
+```
+
+Examples:
+
+```tsx
+setScore(0);
+setUsername("Ifty");
+```
+
+vs.
+
+```tsx
+setScore((prevScore) => prevScore + 1);
+setIsOnline((prev) => !prev);
+```
+
+The learner initially mixed up some examples but corrected the distinction successfully.
+
+### 8. Multiple updates and current render values
+The learner learned why:
+
+```tsx
+setCount(count + 1);
+setCount(count + 1);
+```
+
+can use the same current-render value and therefore not necessarily increase by 2.
+
+Recommended pattern when calculating from previous state:
+
+```tsx
+setCount((prevCount) => prevCount + 1);
+```
+
+### 9. State setter does not immediately change the current function's variable
+The learner learned that after calling a setter, the currently running function still has access to the state snapshot from its current render. The updated value is provided in a later render.
+
+### 10. State-driven conditional rendering
+The learner successfully connected state to conditional UI:
+
+```tsx
+{isLoggedIn ? "Logout" : "Login"}
+```
+
+and:
+
+```tsx
+{score >= 10 ? "Excellent!" : "Keep going!"}
+```
+
+---
+
+## Practice Completed
+
+### 1. Counter
+Implemented state-based count increase.
+
+### 2. Online/Offline Toggle
+Implemented boolean state and conditional UI.
+
+### 3. Login/Logout Toggle
+Implemented login state controlling both button text and welcome message.
+
+### 4. Score Board Challenge
+Built independently:
+- score starts at 0
+- +1 button
+- +5 button
+- reset button
+- conditional `Excellent!` / `Keep going!` message
+
+Key learning:
+Multiple buttons can update one shared state.
+
+### 5. Product Quantity Controller
+Built independently:
+- quantity starts at 1
+- decrease button
+- increase button
+- reset button
+- quantity never goes below 0
+- Available / Out of Stock conditional UI
+
+The learner independently used:
+
+```tsx
+Math.max(0, prevQuantity - 1)
+```
+
+to prevent invalid negative quantity. This showed good use of normal JavaScript logic inside React state updates.
+
+---
+
+## Mistakes and Lessons
+
+### Mistake 1: Imprecise explanation of normal variables
+Initial explanation suggested React cannot change JavaScript variables.
+
+Correct lesson:
+
+> React does not automatically track normal variable changes for rendering.
+
+### Mistake 2: Direct update vs previous-state updater confusion
+The learner initially selected the wrong pattern for some cases. After practice, the learner correctly understood:
+
+```text
+Known value → direct update
+Depends on previous value → previous-state updater
+```
+
+### Mistake 3: Toggle initially written with direct current-state expression
+
+```tsx
+setIsModalOpen(!isModalOpen);
+```
+
+This works, but the recommended pattern based on today's lesson is:
+
+```tsx
+setIsModalOpen((prev) => !prev);
+```
+
+### Mistake 4: Quantity reset requirement
+The Product Quantity Controller initially reset to `0` instead of the required initial quantity `1`. The learner immediately corrected it to:
+
+```tsx
+setQuantity(1);
+```
+
+This was a requirement-reading mistake, not a React concept misunderstanding.
+
+---
+
+## Strengths After Day 10
+
+The learner can now:
+- explain why normal variables do not automatically update React UI
+- explain why state exists
+- use `useState` correctly
+- identify state value, setter, and initial value
+- update number and boolean state
+- understand state persistence across renders
+- understand that initial state does not reset on every re-render
+- use multiple independent state values
+- choose between direct updates and previous-state calculations
+- build counters and toggles
+- connect state to conditional rendering
+- let multiple buttons control one state
+- prevent invalid state with JavaScript logic
+- build small interactive React UI independently
+
+## Weak Areas / Future Reinforcement
+
+- Precise wording when explaining React internals
+- More complex state update timing/batching (not deeply covered yet)
+- Object state and immutability
+- Array state and immutable updates
+- More complex state ownership and lifting state up
+
+These should be reinforced naturally in later state, forms, and data-flow lessons.
+
+## Mentor Assessment
+
+**Conceptual Understanding:** Strong  
+**Practical Application:** Strong  
+**Independent Problem Solving:** Good  
+**Explanation Precision:** Developing; understands ideas but occasionally describes React behavior imprecisely  
+**Confidence:** 4/5
+
+**Day 10 Status:** Completed
+
+---
+
+# NEXT LEARNING STEP
+
+## Day 11 — Object State
+
+Primary question:
+
+> How should we store and update related data when one state value contains multiple properties?
+
+Topics:
+- object state
+- reading object properties
+- immutable object updates
+- why mutation is problematic
+- spread operator for state updates
+- nested object update basics
+
+Important connection from Day 10:
+
+```text
+Single primitive value state
+↓
+Easy to replace
+
+Multiple related values
+↓
+Often represented as an object
+↓
+Need to learn safe immutable updates
 ```
